@@ -10,9 +10,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>quick.starter.base</groupId>
-	<artifactId>springboot-rest-services</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>services-rest</groupId>
+	<artifactId>home-manager-products</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>quickstarter-springboot-rest-services</name>
 	<description>Base project for Spring Boot</description>
 
