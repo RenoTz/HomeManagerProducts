@@ -1,9 +1,9 @@
-package quick.starter.base.jpa;
+package springboot.services.rest.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
 }

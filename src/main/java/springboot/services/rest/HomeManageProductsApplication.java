@@ -1,4 +1,4 @@
-package quick.starter.base;
+package springboot.services.rest;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -10,13 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-public class DemoApplication {
+public class HomeManageProductsApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(DemoApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(HomeManageProductsApplication.class);
 
 	public static void main(String[] args) throws UnknownHostException {
 
-		final SpringApplication app = new SpringApplication(DemoApplication.class);
+		final SpringApplication app = new SpringApplication(HomeManageProductsApplication.class);
 
 		final Environment env = app.run(args).getEnvironment();
 
