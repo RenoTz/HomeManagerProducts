@@ -1,9 +1,7 @@
 package springboot.services.rest.services.impl;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +15,8 @@ import springboot.services.rest.services.ProductService;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-	private final ProductMapper mapper = Mappers.getMapper(ProductMapper.class);
+	@Autowired
+	private ProductMapper mapper;
 
 	@Autowired
 	private ProductRepository repository;
@@ -33,19 +32,18 @@ public class ProductServiceImpl implements ProductService {
 
 	@Transactional
 	@Override
-	public ProductResource save(ProductResource product) {
+	public ProductResource save(Product product) {
 
-		final Product saveProduct = this.repository.save(this.mapper.resourceToEntity(product));
+		final Product saveProduct = this.repository.save(product);
 
 		return this.mapper.entityToResource(saveProduct);
 	}
 
 	@Transactional
 	@Override
-	public List<ProductResource> save(List<ProductResource> products) {
+	public List<ProductResource> save(List<Product> products) {
 
-		final List<Product> saveProducts = this.repository
-				.saveAll(products.stream().map(p -> this.mapper.resourceToEntity(p)).collect(Collectors.toList()));
+		final List<Product> saveProducts = this.repository.saveAll(products);
 
 		return this.mapper.entitiesToListResources(saveProducts);
 	}

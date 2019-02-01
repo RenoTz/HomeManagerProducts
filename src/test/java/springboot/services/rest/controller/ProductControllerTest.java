@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import springboot.services.rest.mapper.ProductMapper;
 import springboot.services.rest.model.ProductResource;
 import springboot.services.rest.services.ProductService;
 
@@ -26,6 +27,9 @@ public class ProductControllerTest {
 
 	@Mock
 	private ProductService service;
+
+	@Mock
+	private ProductMapper mapper;
 
 	@Test
 	public void testRetrieveAllProducts() throws Exception {
@@ -43,11 +47,13 @@ public class ProductControllerTest {
 	public void testAddProducts() throws Exception {
 
 		// Arrange
+		when(this.mapper.resourcesToListEntities(anyList())).thenReturn(Lists.newArrayList());
 		when(this.service.save(anyList())).thenReturn(Lists.newArrayList());
 		// Act
 		final List<ProductResource> retour = this.controller.addProducts(Lists.newArrayList(new ProductResource()));
 		// Assert
 		assertNotNull(retour);
+		verify(this.mapper, only()).resourcesToListEntities(anyList());
 		verify(this.service, only()).save(anyList());
 
 	}

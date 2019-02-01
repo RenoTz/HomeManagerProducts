@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import springboot.services.rest.mapper.ProductMapper;
 import springboot.services.rest.model.ProductResource;
 import springboot.services.rest.services.ProductService;
 
@@ -18,6 +19,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+
+	@Autowired
+	private ProductMapper mapper;
 
 	@GetMapping("/products")
 	public List<ProductResource> retrieveAllProducts() {
@@ -29,7 +33,7 @@ public class ProductController {
 	@Transactional
 	public List<ProductResource> addProducts(@RequestBody final List<ProductResource> products) {
 
-		return this.productService.save(products);
+		return this.productService.save(this.mapper.resourcesToListEntities(products));
 	}
 
 }
