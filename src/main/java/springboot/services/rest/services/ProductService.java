@@ -2,13 +2,13 @@ package springboot.services.rest.services;
 
 import java.util.List;
 
-import springboot.services.rest.jpa.Product;
+import springboot.services.rest.model.ProductResource;
 
 public interface ProductService {
 
-	List<Product> getAllProducts();
+	List<ProductResource> getAllProducts();
 
-	Product save(final Product product);
+	ProductResource save(final ProductResource product);
 
-	List<Product> save(final List<Product> products);
+	List<ProductResource> save(final List<ProductResource> products);
 }

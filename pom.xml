@@ -55,6 +55,11 @@
 			<version>1.0.0.Final</version>
 		</dependency>
 		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-jdk8</artifactId>
+			<version>1.2.0.Final</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -68,48 +73,20 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-			    <groupId>org.jacoco</groupId>
-			    <artifactId>jacoco-maven-plugin</artifactId>
-			    <version>0.7.9</version>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <version>3.5.1</version>
 			    <configuration>
-			        <excludes>
-			            <exclude>in/sivalabs/freelancerkit/entities/*</exclude>
-			            <exclude>in/sivalabs/freelancerkit/*Application</exclude>
-			        </excludes>
+			        <source>1.8</source>
+			    <target>1.8</target>
+			        <annotationProcessorPaths>
+			            <path>
+			                <groupId>org.mapstruct</groupId>
+			                <artifactId>mapstruct-processor</artifactId>
+			                <version>1.1.0.Final</version>
+			            </path>
+			        </annotationProcessorPaths>
 			    </configuration>
-			    <executions>
-			        <execution>
-			            <id>default-prepare-agent</id>
-			            <goals>
-			                <goal>prepare-agent</goal>
-			            </goals>
-			        </execution>
-			        <execution>
-			            <id>default-prepare-agent-integration</id>
-			            <goals>
-			                <goal>prepare-agent-integration</goal>
-			            </goals>
-			        </execution>
-			        <execution>
-			            <id>default-report</id>
-			            <phase>verify</phase>
-			            <goals>
-			                <goal>report</goal>
-			            </goals>
-			        </execution>
-			        <execution>
-			            <id>default-report-integration</id>
-			            <goals>
-			                <goal>report-integration</goal>
-			            </goals>
-			        </execution>
-			        <execution>
-			            <id>default-check</id>
-			            <goals>
-			                <goal>check</goal>
-			            </goals>
-			        </execution>
-			    </executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import springboot.services.rest.jpa.Product;
+import springboot.services.rest.model.ProductResource;
 import springboot.services.rest.services.ProductService;
 
 @RestController
@@ -20,14 +20,14 @@ public class ProductController {
 	private ProductService productService;
 
 	@GetMapping("/products")
-	public List<Product> retrieveAllProducts() {
+	public List<ProductResource> retrieveAllProducts() {
 
 		return this.productService.getAllProducts();
 	}
 
 	@PostMapping("/products")
 	@Transactional
-	public List<Product> addProducts(@RequestBody final List<Product> products) {
+	public List<ProductResource> addProducts(@RequestBody final List<ProductResource> products) {
 
 		return this.productService.save(products);
 	}
