@@ -2,16 +2,22 @@ package springboot.services.rest.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import springboot.services.rest.model.TypeProductEnum;
+
 @Entity
-@Table(name = "produit")
+@Table(name = "product")
 public class Product {
 
 	@Id
-	@GeneratedValue
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "designation")
@@ -20,8 +26,9 @@ public class Product {
 	@Column(name = "prix")
 	private Double prix;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "type")
-	private String type;
+	private TypeProductEnum type;
 
 	public Long getId() {
 
@@ -43,7 +50,7 @@ public class Product {
 		return this.prix;
 	}
 
-	public String getType() {
+	public TypeProductEnum getType() {
 
 		return this.type;
 	}
@@ -58,7 +65,7 @@ public class Product {
 		this.prix = prix;
 	}
 
-	public void setType(String type) {
+	public void setType(TypeProductEnum type) {
 
 		this.type = type;
 	}
