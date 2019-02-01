@@ -12,7 +12,7 @@ import org.springframework.core.env.Environment;
 @SpringBootApplication
 public class HomeManageProductsApplication {
 
-	private static final Logger log = LoggerFactory.getLogger(HomeManageProductsApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(HomeManageProductsApplication.class);
 
 	public static void main(String[] args) throws UnknownHostException {
 
@@ -20,7 +20,7 @@ public class HomeManageProductsApplication {
 
 		final Environment env = app.run(args).getEnvironment();
 
-		log.info(
+		LOGGER.info(
 				"\n----------------------------------------------------------\n\t"
 						+ "Application '{}' is running! Access URLs:\n\t" + "Local: \t\t{}://localhost:{}\n\t"
 						+ "External: \t{}://{}:{}\n" + "----------------------------------------------------------",
