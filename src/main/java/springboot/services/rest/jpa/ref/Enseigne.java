@@ -16,6 +16,9 @@ public class Enseigne {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "code")
+	private String code;
+
 	@Column(name = "libelle")
 	private String libelle;
 
@@ -29,14 +32,24 @@ public class Enseigne {
 		return this.libelle;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 
 		this.id = id;
 	}
 
-	public void setLibelle(String libelle) {
+	public void setLibelle(final String libelle) {
 
 		this.libelle = libelle;
+	}
+
+	public String getCode() {
+
+		return this.code;
+	}
+
+	public void setCode(final String code) {
+
+		this.code = code;
 	}
 
 }

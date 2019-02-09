@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.RelationTargetAuditMode;
+
 import springboot.services.rest.jpa.ref.Enseigne;
 import springboot.services.rest.jpa.ref.TypeProduct;
 
@@ -29,10 +32,12 @@ public class Product {
 
 	@ManyToOne
 	@JoinColumn(name = "type_product_id")
+	@Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
 	private TypeProduct type;
 
 	@ManyToOne
 	@JoinColumn(name = "enseigne_id")
+	@Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
 	private Enseigne enseigne;
 
 	public Long getId() {

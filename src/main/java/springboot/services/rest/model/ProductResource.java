@@ -1,15 +1,12 @@
 package springboot.services.rest.model;
 
-import springboot.services.rest.jpa.ref.Enseigne;
-import springboot.services.rest.jpa.ref.TypeProduct;
-
 public class ProductResource {
 
 	private Long id;
 	private String designation;
 	private Double prix;
-	private TypeProduct type;
-	private Enseigne enseigne;
+	private ReferentielResource type;
+	private ReferentielResource enseigne;
 
 	public Long getId() {
 
@@ -26,7 +23,7 @@ public class ProductResource {
 		return this.prix;
 	}
 
-	public TypeProduct getType() {
+	public ReferentielResource getType() {
 
 		return this.type;
 	}
@@ -46,17 +43,17 @@ public class ProductResource {
 		this.prix = prix;
 	}
 
-	public void setType(final TypeProduct type) {
+	public void setType(final ReferentielResource type) {
 
 		this.type = type;
 	}
 
-	public Enseigne getEnseigne() {
+	public ReferentielResource getEnseigne() {
 
 		return this.enseigne;
 	}
 
-	public void setEnseigne(final Enseigne enseigne) {
+	public void setEnseigne(final ReferentielResource enseigne) {
 
 		this.enseigne = enseigne;
 	}

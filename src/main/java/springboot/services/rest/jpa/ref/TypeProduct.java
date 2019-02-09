@@ -16,6 +16,9 @@ public class TypeProduct {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "code")
+	private String code;
+
 	@Column(name = "libelle")
 	private String libelle;
 
@@ -37,6 +40,16 @@ public class TypeProduct {
 	public void setLibelle(final String libelle) {
 
 		this.libelle = libelle;
+	}
+
+	public String getCode() {
+
+		return this.code;
+	}
+
+	public void setCode(final String code) {
+
+		this.code = code;
 	}
 
 }
