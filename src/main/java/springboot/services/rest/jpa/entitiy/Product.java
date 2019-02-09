@@ -1,15 +1,16 @@
-package springboot.services.rest.jpa;
+package springboot.services.rest.jpa.entitiy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import springboot.services.rest.model.TypeProductEnum;
+import springboot.services.rest.jpa.ref.Enseigne;
+import springboot.services.rest.jpa.ref.TypeProduct;
 
 @Entity
 @Table(name = "product")
@@ -26,16 +27,20 @@ public class Product {
 	@Column(name = "prix")
 	private Double prix;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "type")
-	private TypeProductEnum type;
+	@ManyToOne
+	@JoinColumn(name = "type_product_id")
+	private TypeProduct type;
+
+	@ManyToOne
+	@JoinColumn(name = "enseigne_id")
+	private Enseigne enseigne;
 
 	public Long getId() {
 
 		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 
 		this.id = id;
 	}
@@ -50,24 +55,34 @@ public class Product {
 		return this.prix;
 	}
 
-	public TypeProductEnum getType() {
+	public TypeProduct getType() {
 
 		return this.type;
 	}
 
-	public void setDesignation(String designation) {
+	public void setDesignation(final String designation) {
 
 		this.designation = designation;
 	}
 
-	public void setPrix(Double prix) {
+	public void setPrix(final Double prix) {
 
 		this.prix = prix;
 	}
 
-	public void setType(TypeProductEnum type) {
+	public void setType(final TypeProduct type) {
 
 		this.type = type;
+	}
+
+	public Enseigne getEnseigne() {
+
+		return this.enseigne;
+	}
+
+	public void setEnseigne(final Enseigne enseigne) {
+
+		this.enseigne = enseigne;
 	}
 
 }

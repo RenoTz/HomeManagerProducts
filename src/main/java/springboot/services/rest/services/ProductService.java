@@ -2,7 +2,7 @@ package springboot.services.rest.services;
 
 import java.util.List;
 
-import springboot.services.rest.jpa.Product;
+import springboot.services.rest.jpa.entitiy.Product;
 import springboot.services.rest.model.ProductResource;
 
 public interface ProductService {

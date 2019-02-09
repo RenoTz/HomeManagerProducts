@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import springboot.services.rest.jpa.Product;
-import springboot.services.rest.jpa.ProductRepository;
+import springboot.services.rest.jpa.dao.ProductRepository;
+import springboot.services.rest.jpa.entitiy.Product;
 import springboot.services.rest.mapper.ProductMapper;
 import springboot.services.rest.model.ProductResource;
 import springboot.services.rest.services.ProductService;
