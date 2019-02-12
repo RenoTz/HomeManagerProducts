@@ -9,7 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "type_product")
-public class TypeProduct {
+public class TypeProduct extends AbstractDonneeDeReference{
+
+	private static final long serialVersionUID = -3377916461713609471L;
 
 	@Id
 	@Column(name = "id")

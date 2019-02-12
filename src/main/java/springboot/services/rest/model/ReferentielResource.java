@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ReferentielResource {
 
 	@JsonProperty(value = "id")
-	private Long refId;
+	private Long id;
 
 	@JsonProperty(value = "code")
 	private String code;
@@ -13,14 +13,14 @@ public class ReferentielResource {
 	@JsonProperty(value = "libelle")
 	private String libelle;
 
-	public Long getRefId() {
+	public Long getId() {
 
-		return this.refId;
+		return this.id;
 	}
 
-	public void setRefId(final Long refId) {
+	public void setId(final Long id) {
 
-		this.refId = refId;
+		this.id = id;
 	}
 
 	public String getLibelle() {

@@ -10,13 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.Environment;
 
 @SpringBootApplication
-public class HomeManageProductsApplication {
+public class HomeManagerProductsApplication {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(HomeManageProductsApplication.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(HomeManagerProductsApplication.class);
 
 	public static void main(String[] args) throws UnknownHostException {
 
-		final SpringApplication app = new SpringApplication(HomeManageProductsApplication.class);
+		final SpringApplication app = new SpringApplication(HomeManagerProductsApplication.class);
 
 		final Environment env = app.run(args).getEnvironment();
 
